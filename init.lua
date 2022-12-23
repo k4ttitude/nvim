@@ -21,3 +21,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 -- Moving line
 vim.keymap.set("v", "J", ":m .+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m .-2<CR>gv=gv")
+
+vim.cmd.colorscheme "catppuccin"
+--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
