@@ -7,6 +7,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use 'tpope/vim-fugitive'
+
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     -- or                            , branch = '0.1.x',
@@ -15,6 +17,7 @@ return require('packer').startup(function(use)
 
   -- Theme
   use { 'catppuccin/nvim', as = 'catppuccin' }
+  use 'nvim-lualine/lualine.nvim'
 
   use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
@@ -44,7 +47,7 @@ return require('packer').startup(function(use)
     requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},
-      {', {illiamboman/mason.nvim'},
+      {'williamboman/mason.nvim'},
       {'williamboman/mason-lspconfig.nvim'},
 
       -- Autocompletion
@@ -68,6 +71,6 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons'
     },
-    tag = 'nightly'
+    tag = 'nightly',
   }
 end)
