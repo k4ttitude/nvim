@@ -7,8 +7,10 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Git
   use 'tpope/vim-fugitive'
 
+  -- FZF
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     -- or                            , branch = '0.1.x',
@@ -42,6 +44,7 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- LSP
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
@@ -73,4 +76,6 @@ return require('packer').startup(function(use)
     },
     tag = 'nightly',
   }
+
+  use 'windwp/nvim-autopairs'
 end)

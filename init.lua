@@ -27,3 +27,9 @@ vim.cmd.colorscheme "catppuccin"
 --vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+
+vim.keymap.set("n", "+", ":vertical res +1<CR>")
+vim.keymap.set("n", "-", ":vertical res -1<CR>")
+
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
