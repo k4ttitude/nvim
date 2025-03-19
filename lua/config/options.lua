@@ -3,3 +3,7 @@
 -- Add any additional options here
 vim.opt.winbar = "%=%m %f"
 vim.g.lazyvim_prettier_needs_config = true
+
+-- avante
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
