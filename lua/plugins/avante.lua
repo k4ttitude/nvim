@@ -4,10 +4,18 @@ return {
   lazy = false,
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
-    provider = "claude",
+    -- add any opts here
+    provider = "claude_3_7_sonnet", -- Recommend using Claude
     -- auto_suggestions_provider = "claude",
     vendors = {
-      claude = {
+      claude_3_5_haiku = {
+        __inherited_from = "claude",
+        endpoint = "https://api.anthropic.com",
+        model = "claude-3-5-haiku-20241022",
+        temperature = 0,
+        max_tokens = 4096,
+      },
+      claude_3_7_sonnet = {
         __inherited_from = "claude",
         endpoint = "https://api.anthropic.com",
         model = "claude-3-7-sonnet-20250219",
