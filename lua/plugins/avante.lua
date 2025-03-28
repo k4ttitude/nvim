@@ -1,7 +1,6 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
-  lazy = false,
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
     provider = "claude_3_5_sonnet",
@@ -29,6 +28,7 @@ return {
         max_tokens = 4096,
       },
     },
+
     windows = {
       ---@type "right" | "left" | "top" | "bottom"
       position = "right", -- the position of the sidebar
@@ -56,7 +56,9 @@ return {
       },
     },
   },
+
   build = "make",
+
   dependencies = {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
@@ -66,9 +68,6 @@ return {
     "ibhagwan/fzf-lua", -- for file_selector provider fzf
     "echasnovski/mini.icons",
     -- "zbirenbaum/copilot.lua", -- for providers='copilot'
-    -- "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-    -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-    -- "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
