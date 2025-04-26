@@ -5,3 +5,9 @@ local map = LazyVim.safe_keymap_set
 
 map("n", "<c-u>", "<c-u>zz")
 map("n", "<c-d>", "<c-d>zz")
+
+map("n", "<leader>bc", function()
+  local current_file = vim.fn.expand("%")
+  vim.fn.setreg("+", current_file)
+  vim.notify("Cpoied: " .. current_file, vim.log.levels.INFO)
+end, { desc = "Copy Buffer path" })
