@@ -29,6 +29,8 @@ return {
       },
     },
 
+    behavior = { support_paste_from_clipboard = true },
+
     windows = {
       ---@type "right" | "left" | "top" | "bottom"
       position = "right", -- the position of the sidebar
@@ -81,6 +83,10 @@ return {
             insert_mode = true,
           },
         },
+      },
+      keys = {
+        { "<leader>i", "", desc = "+img-clip" },
+        { "<leader>ip", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
       },
     },
     {
