@@ -3,6 +3,7 @@ return {
   event = "VeryLazy",
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
+    mode = "legacy",
     provider = "claude_3_5_sonnet",
     -- auto_suggestions_provider = "claude",
     vendors = {
@@ -29,7 +30,15 @@ return {
       },
     },
 
-    behavior = { support_paste_from_clipboard = true },
+    behavior = {
+      auto_suggestions = false, -- Experimental stage
+      auto_set_highlight_group = true,
+      auto_set_keymaps = true,
+      auto_apply_diff_after_generation = false,
+      minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+      enable_token_counting = true,
+      support_paste_from_clipboard = true,
+    },
 
     windows = {
       ---@type "right" | "left" | "top" | "bottom"
