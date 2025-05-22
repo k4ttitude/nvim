@@ -41,4 +41,6 @@ if vim.loop.os_uname().sysname == "Darwin" then
       { "<leader>o<tab>", ":Obsidian", desc = "Obsidian..." },
     },
   }
+else
+  return {}
 end
