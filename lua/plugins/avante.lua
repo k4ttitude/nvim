@@ -4,29 +4,35 @@ return {
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
     mode = "legacy",
-    provider = "claude_3_5_sonnet",
+    provider = "claude_3_7_sonnet",
     -- auto_suggestions_provider = "claude",
-    vendors = {
+    providers = {
       claude_3_5_haiku = {
         __inherited_from = "claude",
         endpoint = "https://api.anthropic.com",
         model = "claude-3-5-haiku-20241022",
-        temperature = 0,
-        max_tokens = 4096,
+        extra_request_body = {
+          temperature = 0,
+          max_tokens = 4096,
+        },
       },
       claude_3_5_sonnet = {
         __inherited_from = "claude",
         endpoint = "https://api.anthropic.com",
         model = "claude-3-5-sonnet-20241022",
-        temperature = 0,
-        max_tokens = 4096,
+        extra_request_body = {
+          temperature = 0,
+          max_tokens = 4096,
+        },
       },
       claude_3_7_sonnet = {
         __inherited_from = "claude",
         endpoint = "https://api.anthropic.com",
         model = "claude-3-7-sonnet-20250219",
-        temperature = 0,
-        max_tokens = 4096,
+        extra_request_body = {
+          temperature = 0,
+          max_tokens = 4096,
+        },
       },
     },
 
@@ -79,25 +85,25 @@ return {
     "ibhagwan/fzf-lua", -- for file_selector provider fzf
     "echasnovski/mini.icons",
     -- "zbirenbaum/copilot.lua", -- for providers='copilot'
-    {
-      -- support for image pasting
-      "HakonHarnes/img-clip.nvim",
-      event = "VeryLazy",
-      opts = {
-        -- recommended settings
-        default = {
-          embed_image_as_base64 = false,
-          prompt_for_file_name = false,
-          drag_and_drop = {
-            insert_mode = true,
-          },
-        },
-      },
-      keys = {
-        { "<leader>i", "", desc = "+img-clip" },
-        { "<leader>ip", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
-      },
-    },
+    -- {
+    --   -- support for image pasting
+    --   "HakonHarnes/img-clip.nvim",
+    --   event = "VeryLazy",
+    --   opts = {
+    --     -- recommended settings
+    --     default = {
+    --       embed_image_as_base64 = false,
+    --       prompt_for_file_name = false,
+    --       drag_and_drop = {
+    --         insert_mode = true,
+    --       },
+    --     },
+    --   },
+    --   keys = {
+    --     { "<leader>i", "", desc = "+img-clip" },
+    --     { "<leader>ip", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+    --   },
+    -- },
     {
       -- Make sure to set this up properly if you have lazy=true
       "MeanderingProgrammer/render-markdown.nvim",
