@@ -11,24 +11,11 @@ return {
         },
         settings = {
           typescript = {
-            -- sdk = "$NVM_DIR/versions/node/v22.15.0/lib/node_modules/@typescript/native-preview-darwin-arm64/lib",
-            -- experimental = { useTsgo = true },
+            preferences = {
+              includePackageJsonAutoImports = "off", -- reduce infitial scan
+            },
           },
-          -- vtsls = {
-          --   autoUseWorkspaceTsdk = true,
-          -- },
         },
-        on_attach = function(client, bufnr)
-          vim.defer_fn(function()
-            local settings = client.config.settings or {}
-            local ts_settings = settings.typescript or {}
-            local sdk = ts_settings.sdk
-            local node_options = client.config.cmd_env and client.config.cmd_env.NODE_OPTIONS or "not set"
-            -- print("TypeScript SDK: " .. (sdk or "default/system"))
-            -- print("    └─ NODE_OPTIONS: " .. node_options)
-            print("TypeScript SDK: " .. (sdk or "default/system") .. "\n  └─ NODE_OPTIONS: " .. node_options)
-          end, 2000)
-        end,
       },
     },
     setup = {
