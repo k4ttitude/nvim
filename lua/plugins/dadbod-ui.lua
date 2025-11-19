@@ -26,6 +26,6 @@ return {
   end,
   keys = {
     { "<leader>D", "", desc = "+DBUI" },
-    { "<leader>Ds", "<Plug>(DBUI_SaveQuery)", desc = "Obsidian Search", ft = "sql" },
+    { "<leader>Ds", "<Plug>(DBUI_SaveQuery)", desc = "Save Query", ft = "sql" },
   },
 }
