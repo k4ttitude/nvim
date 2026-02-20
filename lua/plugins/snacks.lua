@@ -17,11 +17,13 @@ return {
 
     zen = {
       toggles = { dim = false },
+      show = { statusline = true },
     },
 
     styles = {
       zen = {
         backdrop = { transparent = true, blend = 10 },
+        width = 180,
       },
     },
   },
