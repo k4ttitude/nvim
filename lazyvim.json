@@ -3,7 +3,6 @@
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.formatting.biome",
     "lazyvim.plugins.extras.lang.clangd",
-    "lazyvim.plugins.extras.lang.dotnet",
     "lazyvim.plugins.extras.lang.java",
     "lazyvim.plugins.extras.lang.nix",
     "lazyvim.plugins.extras.lang.prisma",

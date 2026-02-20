@@ -34,11 +34,11 @@ if vim.loop.os_uname().sysname == "Darwin" then
       },
     },
     keys = {
-      { "<leader>o", "", desc = "+Obsidian" },
-      { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian Search" },
-      { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian New" },
-      { "<leader>ot", "<cmd>ObsidianToday<cr>", desc = "Obsidian Today" },
-      { "<leader>o<tab>", ":Obsidian", desc = "Obsidian..." },
+      { "<leader>O", "", desc = "+Obsidian" },
+      { "<leader>Os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian Search" },
+      { "<leader>On", "<cmd>ObsidianNew<cr>", desc = "Obsidian New" },
+      { "<leader>Ot", "<cmd>ObsidianToday<cr>", desc = "Obsidian Today" },
+      { "<leader>O<tab>", ":Obsidian", desc = "Obsidian..." },
     },
   }
 else
