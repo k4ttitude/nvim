@@ -4,6 +4,7 @@ return {
     name = "catppuccin",
     priority = 1000,
     opts = {
+      flavor = "mocha",
       background = { light = "latte", dark = "mocha" },
       dim_inactive = {
         enabled = false,
@@ -42,7 +43,7 @@ return {
         lsp_trouble = true,
         mason = true,
         markdown = true,
-        mini = true,
+        mini = { enabled = true, indentscope_color = "" },
         native_lsp = {
           enabled = true,
           virtual_text = {
@@ -64,7 +65,6 @@ return {
         noice = true,
         notify = true,
         semantic_tokens = true,
-        telescope = true,
         treesitter = true,
         treesitter_context = true,
         which_key = true,
@@ -129,6 +129,8 @@ return {
           -- lavender = "#66729c",
           mauve = "#b18eab",
           base = "#202027",
+          mantle = "#1a1a21",
+          crust = "#141419",
         },
       },
       highlight_overrides = {
@@ -151,29 +153,16 @@ return {
             NeoTreeGitUnstaged = { fg = colors.red },
             NeoTreeGitUntracked = { fg = colors.green },
             NeoTreeIndent = { fg = colors.surface1 },
-            NeoTreeNormal = { bg = colors.mantle },
-            NeoTreeNormalNC = { bg = colors.mantle },
             NeoTreeRootName = { fg = colors.subtext1, style = { "bold" } },
             NeoTreeTabActive = { fg = colors.text, bg = colors.mantle },
             NeoTreeTabInactive = { fg = colors.surface2, bg = colors.crust },
             NeoTreeTabSeparatorActive = { fg = colors.mantle, bg = colors.mantle },
             NeoTreeTabSeparatorInactive = { fg = colors.crust, bg = colors.crust },
             NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
+
             NormalFloat = { bg = colors.base },
             Pmenu = { bg = colors.mantle, fg = "" },
             PmenuSel = { bg = colors.surface0, fg = "" },
-            -- TelescopePreviewBorder = { bg = colors.crust, fg = colors.crust },
-            -- TelescopePreviewNormal = { bg = colors.crust },
-            -- TelescopePreviewTitle = { fg = colors.crust, bg = colors.crust },
-            -- TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
-            -- TelescopePromptCounter = { fg = colors.mauve, style = { "bold" } },
-            -- TelescopePromptNormal = { bg = colors.surface0 },
-            -- TelescopePromptPrefix = { bg = colors.surface0 },
-            -- TelescopePromptTitle = { fg = colors.surface0, bg = colors.surface0 },
-            -- TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
-            -- TelescopeResultsNormal = { bg = colors.mantle },
-            -- TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
-            -- TelescopeSelection = { bg = colors.surface0 },
             VertSplit = { bg = colors.base, fg = colors.surface0 },
             WhichKeyFloat = { bg = colors.mantle },
             YankHighlight = { bg = colors.surface2 },
@@ -403,5 +392,24 @@ return {
       },
     },
   },
+
   { "LazyVim/LazyVim", opts = { colorscheme = "catppuccin" } },
+
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "neo-tree",
+        callback = function()
+          local ok, palettes = pcall(require, "catppuccin.palettes")
+          if not ok then
+            return
+          end
+          local colors = palettes.get_palette()
+          vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = colors.mantle })
+          vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = colors.mantle })
+        end,
+      })
+    end,
+  },
 }
