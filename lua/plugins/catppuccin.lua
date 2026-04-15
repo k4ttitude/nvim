@@ -2,7 +2,14 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    lazy = false,
     priority = 1000,
+
+    config = function(_, opts)
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin")
+    end,
+
     opts = {
       flavor = "mocha",
       background = { light = "latte", dark = "mocha" },
@@ -391,25 +398,5 @@ return {
         end,
       },
     },
-  },
-
-  { "LazyVim/LazyVim", opts = { colorscheme = "catppuccin" } },
-
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "neo-tree",
-        callback = function()
-          local ok, palettes = pcall(require, "catppuccin.palettes")
-          if not ok then
-            return
-          end
-          local colors = palettes.get_palette()
-          vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = colors.mantle })
-          vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = colors.mantle })
-        end,
-      })
-    end,
   },
 }
