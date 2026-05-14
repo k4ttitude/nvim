@@ -2,6 +2,18 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
+-- Macros
+local esc = "\27" -- Escape
+vim.api.nvim_create_augroup("JSLogMacro", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = "JSLogMacro",
+  pattern = { "javascript", "typescript" },
+  callback = function()
+    vim.fn.setreg("l", "yoconsole.log('" .. esc .. "pa:" .. esc .. "la, " .. esc .. "pla" .. esc .. "'" .. esc)
+  end,
+})
+
+-- Show prettier configs currently being used
 vim.api.nvim_create_user_command("PrettierConfigShow", function()
   if vim.fn.executable("npx") ~= 1 and vim.fn.executable("prettier") ~= 1 then
     vim.notify("prettier not found in PATH", vim.log.levels.ERROR)

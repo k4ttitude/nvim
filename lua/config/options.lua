@@ -4,18 +4,16 @@
 vim.opt.winbar = "%=%m %f"
 vim.g.lazyvim_prettier_needs_config = true
 
--- avante
--- views can only be fully collapsed with the global statusline
-vim.opt.laststatus = 3
-
--- Macros
-local esc = "\27" -- Escape
-
-vim.api.nvim_create_augroup("JSLogMacro", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-  group = "JSLogMacro",
-  pattern = { "javascript", "typescript" },
-  callback = function()
-    vim.fn.setreg("l", "yoconsole.log('" .. esc .. "pa:" .. esc .. "la, " .. esc .. "pla" .. esc .. "'" .. esc)
-  end,
-})
+-- Folds
+vim.o.foldenable = true
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldtext = ""
+vim.o.foldlevelstart = 99
+vim.opt.fillchars = {
+  fold = " ",
+  foldopen = "▾",
+  foldclose = "▸",
+  foldinner = " ",
+  foldsep = " ",
+}
